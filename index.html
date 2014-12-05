@@ -6,13 +6,16 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.3/angular.min.js"></script>
 </head>
 <body>
-	<table ng-controller="MultiplicationCtrl as mult">
-		<tr ng-repeat="numberA in mult.numbers">
-			<td ng-repeat="numberB in mult.numbers">
-				{{numberA * numberB}}
-			</td>
-		</tr>
-	</table>
+	<section ng-controller="MultiplicationCtrl as mult">
+		<input type="number" ng-model="numberLimit" placeholder="Enter a number">
+		<table>
+			<tr ng-repeat="numberA in mult.numbers">
+				<td ng-repeat="numberB in mult.numbers">
+					{{numberA * numberB}}
+				</td>
+			</tr>
+		</table>
+	</section>
 	<script src="multApp.js"></script>
 </body>
 </html>

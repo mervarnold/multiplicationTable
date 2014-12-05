@@ -18,4 +18,18 @@ angular.module('multApp', [])
 			}
 			populateNumbers(limit);
 		});
+
+		c.setActiveFactors = function(a, b) {
+			c.activeFactorA = a;
+			c.activeFactorB = b;
+		};
+
+		c.clearActiveFactors = function() {
+			c.activeFactorA = c.activeFactorB = null;
+		}
+
+		c.matchesFactor = function(a, b) {
+			return a === c.activeFactorA || b === c.activeFactorB;
+		};
+
 	});

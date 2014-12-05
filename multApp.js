@@ -1,7 +1,13 @@
 'use strict';
 
 angular.module('multApp', [])
-	.controller('MultiplicationCtrl', function($scope){
+	.controller('DisplayCtrl', function($scope){
+		var c = this;
+		$scope.$on('displayData', function(event, data){
+			c.content = data;
+		});
+	})
+	.controller('MultiplicationCtrl', function($scope, $rootScope){
 		var c = this;
 
 		function populateNumbers(x) {
@@ -30,6 +36,10 @@ angular.module('multApp', [])
 
 		c.matchesFactor = function(a, b) {
 			return a === c.activeFactorA || b === c.activeFactorB;
+		};
+
+		c.setActiveNumber = function(number) {
+			$rootScope.$broadcast('displayData', number);
 		};
 
 	});
